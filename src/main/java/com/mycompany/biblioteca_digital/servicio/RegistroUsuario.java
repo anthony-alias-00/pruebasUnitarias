@@ -19,7 +19,7 @@ public class RegistroUsuario {
         this.contadorId = 1;
     }
 
-    // ===================== REGISTRO =====================
+    // REGISTRO
 
     public boolean registrarUsuario(Usuario usuario) {
         if (buscarPorCedula(usuario.getCedula()) != null) {
@@ -50,7 +50,7 @@ public class RegistroUsuario {
         return true;
     }
 
-    // ===================== LOGIN =====================
+    // LOGIN 
 
     public Persona login(String nombreUsuario, String contraseña) {
         Usuario usuario = buscarUsuarioPorNombre(nombreUsuario);
@@ -77,7 +77,7 @@ public class RegistroUsuario {
         return null;
     }
 
-    // ===================== BÚSQUEDAS PÚBLICAS =====================
+    //BÚSQUEDAS PÚBLICAS 
 
     public Persona buscarPorCedula(String cedula) {
         Usuario u = buscarUsuarioPorCedula(cedula);
@@ -95,7 +95,7 @@ public class RegistroUsuario {
         return buscarPorIdInterno(idPersona);
     }
 
-    // ===================== BÚSQUEDAS PRIVADAS =====================
+    //BÚSQUEDAS PRIVADAS
 
     private Usuario buscarUsuarioPorCedula(String cedula) {
         for (Usuario u : usuarios.listarTodos()) {
@@ -135,7 +135,7 @@ public class RegistroUsuario {
         return null;
     }
 
-    // ===================== LISTAR =====================
+    //LISTAR
 
     public List<Usuario> obtenerTodosLosUsuarios() {
         return usuarios.listarTodos();
@@ -152,7 +152,7 @@ public class RegistroUsuario {
         return resultado;
     }
 
-    // ===================== ACTUALIZAR =====================
+    // ACTUALIZAR
 
     public boolean insertar(Usuario usuario) {
         return registrarUsuario(usuario);
@@ -194,7 +194,7 @@ public class RegistroUsuario {
         return true;
     }
 
-    // ===================== ELIMINAR / DESACTIVAR =====================
+    // ELIMINAR / DESACTIVAR
 
     public boolean desactivarUsuario(String cedula) {
         Persona persona = buscarPorCedula(cedula);
@@ -226,7 +226,7 @@ public class RegistroUsuario {
         return usuarios.eliminar(u);
     }
 
-    // ===================== VALIDACIÓN =====================
+    // VALIDACIÓN
 
     private boolean validarDatosUsuario(Usuario usuario) {
         if (usuario.getCedula() == null || usuario.getCedula().length() != 10) {
